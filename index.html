@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBorrow | Equipment System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-page" class="auth-wrapper">
+        <div class="login-card">
+            <div class="logo-circle">🌿</div>
+            <h1>System Login</h1>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Sign In</button>
+                <p id="error-msg" class="error"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard-page" class="dashboard-wrapper hidden">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-header">
+                    <h2>CSS Equipment Syste</h2>
+                </div>
+                <nav>
+                    <ul>
+                        <li id="nav-dash" class="active">Dashboard</li>
+                        <li id="nav-total">Total Borrowed</li>
+                        <li id="nav-returned">Returned</li>
+                        <li id="nav-overdue">Overdue</li>
+                    </ul>
+                </nav>
+            </div>
+            <button id="logout-btn" class="btn-logout">Logout Account</button>
+        </aside>
+
+        <main class="main-content">
+            <div id="view-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card blue"><span>Total History</span><p id="stat-total">0</p></div>
+                    <div class="stat-card green"><span>Active Loans</span><p id="stat-active">0</p></div>
+                    <div class="stat-card dark-green"><span>Returned</span><p id="stat-returned">0</p></div>
+                    <div class="stat-card orange"><span>Overdue</span><p id="stat-overdue">0</p></div>
+                </div>
+
+                <section id="borrow-section" class="form-container">
+                    <h3>Borrow Equipment</h3>
+                    <form id="borrow-form">
+                        <input type="text" id="borrower-name" placeholder="Full Name" required>
+                        <div class="form-row">
+                            <select id="equipment-select" required>
+                                <option value="Search Equipment">Search Equipment</option>
+                                <option value="Alligator Forcep">Alligator Forcep</option>
+                                <option value="Alus Forcep">Alus Forcep</option>
+                                <option value="Bayonet Forcep Long">Bayonet Forcep Long</option>
+                                <option value="Bayonet Forcep Small">Bayonet Forcep Small</option>
+                                <option value="Blade Holder">Blade Holder</option>
+                                <option value="Bobcock Forcep">Camera</option>
+                                <option value="Bone Ronguer">Camera</option>
+                            </select>
+                            <select id="area-select" required>
+                                <option value="Area">Area</option>
+                                <option value="EE(EMD)">EE(EMD)</option>
+                                <option value="OB-ER">OB-ER</option>
+                                <option value="OB">OB</option>
+                                <option value="3A WARD(PEDIA EXTENSION) RESPI">3A WARD(PEDIA EXTENSION) RESPI</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-borrow-submit">Confirm Borrow</button>
+                    </form>
+                </section>
+
+                <section class="table-container">
+                    <h3>Active Borrowing Log</h3>
+                    <table id="borrow-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Equipment</th>
+                                <th>Location</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th class="admin-only">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="view-total" class="hidden">
+                <section class="table-container">
+                    <h3>Complete History</h3>
+                    <table id="total-table">
+                        <thead><tr><th>Name</th><th>Equipment</th><th>Location</th><th>Date</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="view-returned" class="hidden">
+                <section class="table-container">
+                    <h3>Returned Log</h3>
+                    <table id="returned-table">
+                        <thead><tr><th>Name</th><th>Equipment</th><th>Location</th><th>Return Time</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="view-overdue" class="hidden">
+                <section class="table-container">
+                    <h3 style="color:#ef4444">Overdue Items (24h+)</h3>
+                    <table id="overdue-table">
+                        <thead><tr><th>Name</th><th>Equipment</th><th>Location</th><th>Time Borrowed</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="style.js"></script>
+</body>
+</html>
